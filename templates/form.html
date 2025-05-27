@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>House Price Prediction</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+    body {
+      background: linear-gradient(135deg, #e3f6e3 0%, #b2d8b2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #000000;
+    }
+
+    h2 {
+      text-align: center;
+      color: #000;
+      margin-bottom: 28px;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      font-family: 'Poppins', sans-serif;
+    }
+    form {
+      background: #fff;
+      padding: 40px 35px;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    form:hover {
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #000;
+      letter-spacing: 0.02em;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    select {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      font-size: 1rem;
+      color: #000;
+      background: #fff;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      margin-bottom: 28px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,<svg fill="black" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      background-size: 16px 16px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #000;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+      background-color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 16px 0;
+      border: 2px solid #000;
+      border-radius: 14px;
+      background: #fff;
+      color: #000;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+    button:hover {
+      background: #000;
+      color: #fff;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    @media (max-width: 500px) {
+      form {
+        padding: 30px 20px;
+      }
+      select, button {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" autocomplete="off" spellcheck="false">
+    <h2>Predict House Price</h2>
+
+    <label for="Regionname">Region:</label>
+    <select id="Regionname" name="Regionname" required>
+      {% for code, label in dropdowns.Regionname.items() %}
+        <option value="{{ code }}">{{ label }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="Rooms">Rooms:</label>
+    <select id="Rooms" name="Rooms" required>
+      {% for room in dropdowns.Rooms %}
+        <option value="{{ room }}">{{ room }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="Type">Type:</label>
+    <select id="Type" name="Type" required>
+      {% for code, label in dropdowns.Type.items() %}
+        <option value="{{ code }}">{{ label }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="Method">Method:</label>
+    <select id="Method" name="Method" required>
+      {% for code, label in dropdowns.Method.items() %}
+        <option value="{{ code }}">{{ label }}</option>
+      {% endfor %}
+    </select>
+
+
+
+
+    <button type="submit">Predict Price</button>
+  </form>
+</body>
+</html>

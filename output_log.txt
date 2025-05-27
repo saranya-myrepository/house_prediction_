@@ -1,0 +1,2556 @@
+Redirected print output to output_log.txt
+       Suburb             Address  ...             Regionname Propertycount
+0  Abbotsford       68 Studley St  ...  Northern Metropolitan        4019.0
+1  Abbotsford        85 Turner St  ...  Northern Metropolitan        4019.0
+2  Abbotsford     25 Bloomburg St  ...  Northern Metropolitan        4019.0
+3  Abbotsford  18/659 Victoria St  ...  Northern Metropolitan        4019.0
+4  Abbotsford        5 Charles St  ...  Northern Metropolitan        4019.0
+
+[5 rows x 21 columns]
+              Rooms         Price  ...    Longtitude  Propertycount
+count  34857.000000  2.724700e+04  ...  26881.000000   34854.000000
+mean       3.031012  1.050173e+06  ...    145.001851    7572.888306
+std        0.969933  6.414671e+05  ...      0.120169    4428.090313
+min        1.000000  8.500000e+04  ...    144.423790      83.000000
+25%        2.000000  6.350000e+05  ...    144.933500    4385.000000
+50%        3.000000  8.700000e+05  ...    145.007800    6763.000000
+75%        4.000000  1.295000e+06  ...    145.071900   10412.000000
+max       16.000000  1.120000e+07  ...    145.526350   21650.000000
+
+[8 rows x 13 columns]
+           Suburb           Address  ...            Regionname Propertycount
+34854  Yarraville    147A Severn St  ...  Western Metropolitan        6543.0
+34855  Yarraville  12/37 Stephen St  ...  Western Metropolitan        6543.0
+34856  Yarraville  3 Tarrengower St  ...  Western Metropolitan        6543.0
+
+[3 rows x 21 columns]
+(34857, 21)
+Missing value counts:
+Suburb               0
+Address              0
+Rooms                0
+Type                 0
+Price             7610
+Method               0
+SellerG              0
+Date                 0
+Distance             1
+Postcode             1
+Bedroom2          8217
+Bathroom          8226
+Car               8728
+Landsize         11810
+BuildingArea     21115
+YearBuilt        19306
+CouncilArea          3
+Lattitude         7976
+Longtitude        7976
+Regionname           3
+Propertycount        3
+dtype: int64
+
+The zero_counts of the data is 
+Rooms               0
+Price               0
+Distance           77
+Postcode            0
+Bedroom2           17
+Bathroom           46
+Car              1631
+Landsize         2437
+BuildingArea       76
+YearBuilt           0
+Lattitude           0
+Longtitude          0
+Propertycount       0
+dtype: int64
+
+Showing missing data matrix...
+
+Showing missing data heatmap...
+
+Little's MCAR Test Results:
+Chi-Square: 1096468.179
+Degrees of Freedom: 352172
+P-Value: 0.0
+Data is NOT MCAR (Missing Completely At Random)
+    Landsize      Price
+0      126.0        NaN
+1      202.0  1480000.0
+2      156.0  1035000.0
+3        0.0        NaN
+4      134.0  1465000.0
+5       94.0   850000.0
+6      120.0  1600000.0
+7      400.0        NaN
+8      201.0        NaN
+9      202.0        NaN
+10     181.0   941000.0
+11     245.0  1876000.0
+12    4292.0        NaN
+13     230.0        NaN
+14     256.0  1636000.0
+Index(['Rooms', 'Price', 'Distance', 'Postcode', 'Bedroom2', 'Bathroom', 'Car',
+       'Landsize', 'BuildingArea', 'YearBuilt', 'Lattitude', 'Longtitude',
+       'Propertycount'],
+      dtype='object')
+Index(['Suburb', 'Address', 'Type', 'Method', 'SellerG', 'Date', 'CouncilArea',
+       'Regionname'],
+      dtype='object')
+
+--- Testing Missingness for: Price ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:49   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:49   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:49   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:49   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:49   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Distance ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:49   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:49   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:49   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:49   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:49   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:50   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:50   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:50   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:50   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:50   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:50   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:50   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:50   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:50   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:50   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:50   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:50   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:50   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:50   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:50   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:51   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:51   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:51   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:51   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:51   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Landsize ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:54   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:54   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:54   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:54   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:55   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: BuildingArea ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:55   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:55   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:55   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:55   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:55   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: YearBuilt ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:56   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:56   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:56   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:56   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:56   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Lattitude ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:56   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:56   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:56   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:56   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:57   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:57   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:57   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:57   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:57   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:57   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+
+--- Testing Missingness for: Price ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:          missing_Price   No. Observations:                11517
+Model:                          Logit   Df Residuals:                    11504
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02656
+Time:                        16:41:57   Log-Likelihood:                -6023.5
+converged:                       True   LL-Null:                       -6187.9
+Covariance Type:            nonrobust   LLR p-value:                 4.271e-63
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -262.0478     33.848     -7.742      0.000    -328.389    -195.706
+Rooms             0.2276      0.084      2.707      0.007       0.063       0.392
+Distance         -0.0276      0.005     -6.094      0.000      -0.037      -0.019
+Postcode          0.0008      0.000      3.152      0.002       0.000       0.001
+Bedroom2         -0.1345      0.083     -1.624      0.104      -0.297       0.028
+Bathroom          0.1432      0.042      3.440      0.001       0.062       0.225
+Car              -0.0203      0.025     -0.802      0.423      -0.070       0.029
+Landsize       2.377e-05   2.39e-05      0.994      0.320   -2.31e-05    7.06e-05
+BuildingArea      0.0008      0.000      2.460      0.014       0.000       0.001
+YearBuilt        -0.0030      0.001     -4.643      0.000      -0.004      -0.002
+Lattitude        -1.6813      0.289     -5.816      0.000      -2.248      -1.115
+Longtitude        1.3820      0.239      5.773      0.000       0.913       1.851
+Propertycount  5.658e-06    5.4e-06      1.047      0.295   -4.93e-06    1.62e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Distance ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Postcode ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bedroom2 ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Bathroom ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Car ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            missing_Car   No. Observations:                 9020
+Model:                          Logit   Df Residuals:                     9007
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                  0.1564
+Time:                        16:41:58   Log-Likelihood:                -584.50
+converged:                       True   LL-Null:                       -692.86
+Covariance Type:            nonrobust   LLR p-value:                 1.142e-39
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           762.0043    182.241      4.181      0.000     404.818    1119.191
+Rooms            -0.3664      0.381     -0.963      0.336      -1.113       0.380
+Price          2.779e-08   2.13e-07      0.131      0.896    -3.9e-07    4.45e-07
+Distance         -0.0894      0.027     -3.297      0.001      -0.143      -0.036
+Postcode          0.0045      0.001      3.806      0.000       0.002       0.007
+Bedroom2          0.4837      0.373      1.298      0.194      -0.247       1.214
+Bathroom         -0.3595      0.209     -1.720      0.085      -0.769       0.050
+Landsize        3.39e-05   7.43e-05      0.456      0.648      -0.000       0.000
+BuildingArea     -0.0038      0.003     -1.420      0.156      -0.009       0.001
+YearBuilt        -0.0234      0.003     -7.375      0.000      -0.030      -0.017
+Lattitude        -0.0429      1.744     -0.025      0.980      -3.461       3.375
+Longtitude       -5.0672      1.272     -3.983      0.000      -7.561      -2.573
+Propertycount -1.417e-05   2.28e-05     -0.621      0.535   -5.89e-05    3.06e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Landsize ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       missing_Landsize   No. Observations:                10071
+Model:                          Logit   Df Residuals:                    10058
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.02854
+Time:                        16:41:58   Log-Likelihood:                -3542.1
+converged:                       True   LL-Null:                       -3646.2
+Covariance Type:            nonrobust   LLR p-value:                 6.954e-38
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           -36.8708     35.018     -1.053      0.292    -105.505      31.764
+Rooms            -0.2706      0.135     -2.001      0.045      -0.536      -0.006
+Price          7.018e-08   7.18e-08      0.978      0.328   -7.05e-08    2.11e-07
+Distance          0.0365      0.006      6.302      0.000       0.025       0.048
+Postcode          0.0001      0.000      0.548      0.584      -0.000       0.001
+Bedroom2          0.2634      0.134      1.960      0.050    1.62e-05       0.527
+Bathroom          0.0116      0.063      0.184      0.854      -0.112       0.135
+Car               0.0093      0.036      0.255      0.799      -0.062       0.081
+BuildingArea      0.0001      0.000      0.296      0.767      -0.001       0.001
+YearBuilt         0.0079      0.001      6.920      0.000       0.006       0.010
+Lattitude         0.0918      0.321      0.286      0.775      -0.537       0.721
+Longtitude        0.1496      0.256      0.584      0.559      -0.352       0.652
+Propertycount  1.711e-06   7.01e-06      0.244      0.807    -1.2e-05    1.55e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: BuildingArea ---
+                            Logit Regression Results                            
+================================================================================
+Dep. Variable:     missing_BuildingArea   No. Observations:                10459
+Model:                            Logit   Df Residuals:                    10446
+Method:                             MLE   Df Model:                           12
+Date:                  Sat, 24 May 2025   Pseudo R-squ.:                 0.01971
+Time:                          16:41:58   Log-Likelihood:                -4339.3
+converged:                         True   LL-Null:                       -4426.6
+Covariance Type:              nonrobust   LLR p-value:                 5.632e-31
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const          -244.9081     45.062     -5.435      0.000    -333.228    -156.588
+Rooms            -0.3127      0.118     -2.660      0.008      -0.543      -0.082
+Price         -6.514e-08   6.71e-08     -0.971      0.332   -1.97e-07    6.64e-08
+Distance         -0.0337      0.006     -5.308      0.000      -0.046      -0.021
+Postcode          0.0003      0.000      0.986      0.324      -0.000       0.001
+Bedroom2          0.1135      0.117      0.973      0.331      -0.115       0.342
+Bathroom         -0.0904      0.058     -1.548      0.122      -0.205       0.024
+Car               0.0415      0.033      1.244      0.214      -0.024       0.107
+Landsize       3.553e-05   2.27e-05      1.566      0.117   -8.95e-06       8e-05
+YearBuilt         0.0020      0.001      2.220      0.026       0.000       0.004
+Lattitude        -0.9197      0.376     -2.448      0.014      -1.656      -0.183
+Longtitude        1.4101      0.314      4.487      0.000       0.794       2.026
+Propertycount  1.804e-06   6.39e-06      0.282      0.778   -1.07e-05    1.43e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: YearBuilt ---
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:      missing_YearBuilt   No. Observations:                 9235
+Model:                          Logit   Df Residuals:                     9222
+Method:                           MLE   Df Model:                           12
+Date:                Sat, 24 May 2025   Pseudo R-squ.:                 0.03169
+Time:                        16:41:58   Log-Likelihood:                -1435.3
+converged:                       True   LL-Null:                       -1482.3
+Covariance Type:            nonrobust   LLR p-value:                 8.421e-15
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const           112.3905     67.066      1.676      0.094     -19.057     243.838
+Rooms            -0.1561      0.198     -0.789      0.430      -0.544       0.232
+Price         -9.338e-08   1.15e-07     -0.809      0.419    -3.2e-07    1.33e-07
+Distance          0.0152      0.011      1.398      0.162      -0.006       0.037
+Postcode          0.0008      0.001      1.549      0.121      -0.000       0.002
+Bedroom2         -0.2720      0.195     -1.392      0.164      -0.655       0.111
+Bathroom          0.4108      0.096      4.299      0.000       0.224       0.598
+Car               0.0337      0.064      0.530      0.596      -0.091       0.158
+Landsize      -2.216e-05   4.61e-05     -0.480      0.631      -0.000    6.83e-05
+BuildingArea      0.0028      0.001      5.121      0.000       0.002       0.004
+Lattitude         0.0319      0.617      0.052      0.959      -1.178       1.242
+Longtitude       -0.8051      0.495     -1.625      0.104      -1.776       0.166
+Propertycount  -1.27e-05    1.3e-05     -0.975      0.330   -3.82e-05    1.28e-05
+=================================================================================
+
+  Interpretation:
+   - Significant (p < 0.05) predictors → Missingness may be MAR
+   - Non-significant → Missingness may be MCAR or MNAR (not conclusive)
+
+
+--- Testing Missingness for: Lattitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Longtitude ---
+❌ Not enough variation in missingness to fit model.
+
+--- Testing Missingness for: Propertycount ---
+❌ Not enough variation in missingness to fit model.
+Suburb                       0
+Address                      0
+Rooms                        0
+Type                         0
+Price                     7610
+Method                       0
+SellerG                      0
+Date                         0
+Distance                     1
+Postcode                     1
+Bedroom2                  8217
+Bathroom                  8226
+Car                       8728
+Landsize                 11810
+BuildingArea             21115
+YearBuilt                19306
+CouncilArea                  3
+Lattitude                 7976
+Longtitude                7976
+Regionname                   3
+Propertycount                3
+missing_Price                0
+missing_Distance             0
+missing_Postcode             0
+missing_Bedroom2             0
+missing_Bathroom             0
+missing_Car                  0
+missing_Landsize             0
+missing_BuildingArea         0
+missing_YearBuilt            0
+missing_Lattitude            0
+missing_Longtitude           0
+missing_Propertycount        0
+dtype: int64
+
+Missing value counts before imputation:
+Suburb                       0
+Address                      0
+Rooms                        0
+Type                         0
+Price                     7610
+Method                       0
+SellerG                      0
+Date                         0
+Distance                     1
+Postcode                     1
+Bedroom2                  8217
+Bathroom                  8226
+Car                       8728
+Landsize                 11810
+BuildingArea             21115
+YearBuilt                19306
+CouncilArea                  3
+Lattitude                 7976
+Longtitude                7976
+Regionname                   3
+Propertycount                3
+missing_Price                0
+missing_Distance             0
+missing_Postcode             0
+missing_Bedroom2             0
+missing_Bathroom             0
+missing_Car                  0
+missing_Landsize             0
+missing_BuildingArea         0
+missing_YearBuilt            0
+missing_Lattitude            0
+missing_Longtitude           0
+missing_Propertycount        0
+dtype: int64
+
+Missing value counts after imputation:
+Suburb                   0
+Address                  0
+Rooms                    0
+Type                     0
+Price                    0
+Method                   0
+SellerG                  0
+Date                     0
+Distance                 0
+Postcode                 0
+Bedroom2                 0
+Bathroom                 0
+Car                      0
+Landsize                 0
+BuildingArea             0
+YearBuilt                0
+CouncilArea              3
+Lattitude                0
+Longtitude               0
+Regionname               3
+Propertycount            0
+missing_Price            0
+missing_Distance         0
+missing_Postcode         0
+missing_Bedroom2         0
+missing_Bathroom         0
+missing_Car              0
+missing_Landsize         0
+missing_BuildingArea     0
+missing_YearBuilt        0
+missing_Lattitude        0
+missing_Longtitude       0
+missing_Propertycount    0
+dtype: int64
+Missing values after dropping rows:
+Suburb                   0
+Address                  0
+Rooms                    0
+Type                     0
+Price                    0
+Method                   0
+SellerG                  0
+Date                     0
+Distance                 0
+Postcode                 0
+Bedroom2                 0
+Bathroom                 0
+Car                      0
+Landsize                 0
+BuildingArea             0
+YearBuilt                0
+CouncilArea              0
+Lattitude                0
+Longtitude               0
+Regionname               0
+Propertycount            0
+missing_Price            0
+missing_Distance         0
+missing_Postcode         0
+missing_Bedroom2         0
+missing_Bathroom         0
+missing_Car              0
+missing_Landsize         0
+missing_BuildingArea     0
+missing_YearBuilt        0
+missing_Lattitude        0
+missing_Longtitude       0
+missing_Propertycount    0
+dtype: int64
+Number of outliers detected per numeric column:
+Rooms: 33
+Price: 1223
+Distance: 1467
+Postcode: 959
+Bedroom2: 66
+Bathroom: 387
+Car: 1520
+Landsize: 1354
+BuildingArea: 386
+YearBuilt: 1639
+Lattitude: 1691
+Longtitude: 2152
+Propertycount: 844
+missing_Price: 7610
+missing_Distance: 0
+missing_Postcode: 0
+missing_Bedroom2: 8214
+missing_Bathroom: 8223
+missing_Car: 0
+missing_Landsize: 0
+missing_BuildingArea: 0
+missing_YearBuilt: 0
+missing_Lattitude: 7973
+missing_Longtitude: 7973
+missing_Propertycount: 0
+Columns after dropping specified missing_ columns:
+Index(['Suburb', 'Address', 'Rooms', 'Type', 'Price', 'Method', 'SellerG',
+       'Date', 'Distance', 'Postcode', 'Bedroom2', 'Bathroom', 'Car',
+       'Landsize', 'BuildingArea', 'YearBuilt', 'CouncilArea', 'Lattitude',
+       'Longtitude', 'Regionname', 'Propertycount'],
+      dtype='object')
+Number of outliers detected per numeric column:
+Rooms: 33
+Price: 1223
+Distance: 1467
+Postcode: 959
+Bedroom2: 66
+Bathroom: 387
+Car: 1520
+Landsize: 1354
+BuildingArea: 386
+YearBuilt: 1639
+Lattitude: 1691
+Longtitude: 2152
+Propertycount: 844
+Price            1.000000
+Bathroom         0.515275
+Rooms            0.502301
+Bedroom2         0.489647
+Car              0.256834
+Longtitude       0.234200
+BuildingArea     0.111032
+Postcode         0.053522
+Landsize         0.033421
+Propertycount   -0.057430
+Distance        -0.225610
+Lattitude       -0.234767
+YearBuilt       -0.252274
+Name: Price, dtype: float64
