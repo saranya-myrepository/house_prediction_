@@ -6,7 +6,7 @@ PROJECT OVERVIEW:
 --->Dataset: Melbourne House Price Prediction Dataset(Kaggle).
 FEATURES USED:
 ---> Rooms, Bathroom, Car
---->Landsizr, BuildingArea, YearBuilt
+--->Landsize, BuildingArea, YearBuilt
 --->Regionname, CouncilArea
 --->Suburb, Distance, Postcode
 DATA PREPROCESSING:
